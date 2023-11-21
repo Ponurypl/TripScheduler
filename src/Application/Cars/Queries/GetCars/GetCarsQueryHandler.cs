@@ -1,19 +1,19 @@
 ﻿namespace Example.TripScheduler.Application.Cars.Queries.GetCars;
 
-public sealed class GetCarsQueryHandler : IQueryHandler<GetCarsQuery, List<CarDto>>
+internal sealed class GetCarsQueryHandler : IQueryHandler<GetCarsQuery, List<Car>>
 {
-    private readonly ICarRepository _carRepository;
+    private readonly ICarRepository _repository;
     private readonly IMapper _mapper;
 
-    public GetCarsQueryHandler(ICarRepository carRepository, IMapper mapper)
+    public GetCarsQueryHandler(ICarRepository repository, IMapper mapper)
     {
-        _carRepository = carRepository;
+        _repository = repository;
         _mapper = mapper;
     }
 
-    public async Task<ErrorOr<List<CarDto>>> Handle(GetCarsQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<List<Car>>> Handle(GetCarsQuery request, CancellationToken cancellationToken)
     {
-        var cars = await _carRepository.GetAllAsync(cancellationToken);
-        return _mapper.Map<List<CarDto>>(cars);
+        var cars = await _repository.GetAllAsync(cancellationToken);
+        return _mapper.Map<List<Car>>(cars);
     }
 }

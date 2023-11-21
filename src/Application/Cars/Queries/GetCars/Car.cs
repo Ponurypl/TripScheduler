@@ -1,6 +1,6 @@
 ﻿namespace Example.TripScheduler.Application.Cars.Queries.GetCars;
 
-public sealed record CarDto
+public sealed record Car
 {
     public int Id { get; init; }
     public string Brand { get; init; } = default!;
