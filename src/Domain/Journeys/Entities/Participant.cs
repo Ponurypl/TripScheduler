@@ -21,7 +21,7 @@ public sealed class Participant : Entity<ParticipantId>
         ContactInformation = contactInformation;
     }
 
-    internal static ErrorOr<Participant> Create(string firstName, string lastName, string email, string phoneNumber)
+    internal static ErrorOr<Participant> Create(string firstName, string lastName, string? email, string? phoneNumber)
     {
         if (string.IsNullOrWhiteSpace(firstName))
             return Error.Validation(nameof(Participant), "First name cannot be empty");

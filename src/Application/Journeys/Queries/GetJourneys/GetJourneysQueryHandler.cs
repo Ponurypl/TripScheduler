@@ -32,10 +32,10 @@ internal sealed class GetJourneysQueryHandler : IQueryHandler<GetJourneysQuery, 
             var journey = _mapper.Map<Journey>(item);
 
             var car = await _carRepository.GetByIdAsync(item.Car, cancellationToken);
-            journey.Car = _mapper.Map<Car>(car);
+            journey.Car = _mapper.Map<Car>(car!);
 
             var driver = await _driverRepository.GetByIdAsync(item.Driver, cancellationToken);
-            journey.Driver = _mapper.Map<Driver>(driver);
+            journey.Driver = _mapper.Map<Driver>(driver!);
 
             results.Add(journey);
         }

@@ -49,7 +49,7 @@ public sealed class ScheduledJourney : AggregateRoot<ScheduledJourneyId>
         return new ScheduledJourney(ScheduledJourneyId.New(), origin, destination, departureTime, driver, car);
     }
 
-    public ErrorOr<Success> AddParticipant(string firstName, string lastName, string email, string phoneNumber)
+    public ErrorOr<Participant> AddParticipant(string firstName, string lastName, string? email, string? phoneNumber)
     {
         var participant = Participant.Create(firstName, lastName, email, phoneNumber);
 
@@ -59,6 +59,6 @@ public sealed class ScheduledJourney : AggregateRoot<ScheduledJourneyId>
         }
 
         _participants.Add(participant.Value);
-        return Result.Success;
+        return participant;
     }
 }

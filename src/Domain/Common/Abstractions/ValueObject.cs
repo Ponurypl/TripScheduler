@@ -58,5 +58,5 @@ public abstract class ValueObject : IEquatable<ValueObject>
     /// Gets the atomic values of the value object.
     /// </summary>
     /// <returns>The collection of objects representing the value object values.</returns>
-    protected abstract IEnumerable<object> GetAtomicValues();
+    protected abstract IEnumerable<object?> GetAtomicValues();
 }
