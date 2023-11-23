@@ -20,7 +20,7 @@ public sealed class ContactInformation : ValueObject
 
     public static ErrorOr<ContactInformation> Create(string? email, string? phoneNumber)
     {
-        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(phoneNumber))
+        if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(phoneNumber))
             return Error.Validation(nameof(ContactInformation), "Email and phone number cannot be both empty");
 
         return new ContactInformation(email, phoneNumber);
