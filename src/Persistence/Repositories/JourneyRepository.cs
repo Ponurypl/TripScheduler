@@ -18,7 +18,7 @@ internal sealed class JourneyRepository : IJourneyRepository
 
     public async Task<ScheduledJourney?> GetByIdAsync(ScheduledJourneyId id, CancellationToken ct = default)
     {
-        return await _journeys.FirstOrDefaultAsync(j => j.Id == id, ct);
+        return await _journeys.Include(x => x.Participants).SingleOrDefaultAsync(j => j.Id == id, ct);
     }
 
     public async Task AddAsync(ScheduledJourney journey, CancellationToken ct = default)

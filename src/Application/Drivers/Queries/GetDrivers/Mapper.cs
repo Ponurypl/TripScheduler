@@ -1,4 +1,4 @@
-﻿namespace Example.TripScheduler.Application.Drivers.Queries.Common;
+﻿namespace Example.TripScheduler.Application.Drivers.Queries.GetDrivers;
 
 internal sealed class Mapper : IRegister
 {

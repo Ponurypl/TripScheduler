@@ -1,6 +1,4 @@
-﻿using Example.TripScheduler.Application.Drivers.Queries.Common;
-
-namespace Example.TripScheduler.Application.Drivers.Queries.GetDrivers;
+﻿namespace Example.TripScheduler.Application.Drivers.Queries.GetDrivers;
 
 internal sealed class GetDriversQueryHandler : IQueryHandler<GetDriversQuery, List<Driver>>
 {
@@ -15,7 +13,7 @@ internal sealed class GetDriversQueryHandler : IQueryHandler<GetDriversQuery, Li
 
     public async Task<ErrorOr<List<Driver>>> Handle(GetDriversQuery request, CancellationToken cancellationToken)
     {
-        var drivers = await _repository.GetAllAsync(cancellationToken);
+        var drivers = await _repository.GetAsync(request.Name, cancellationToken);
         return _mapper.Map<List<Driver>>(drivers);
     }
 }

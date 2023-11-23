@@ -1,4 +1,4 @@
-﻿namespace Example.TripScheduler.WebApi.v1.Journeys.GetJourneys;
+﻿namespace Example.TripScheduler.WebApi.v1.Journeys.GetJourneyById;
 
 public sealed record Participant
 {

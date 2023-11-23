@@ -1,4 +1,4 @@
-﻿namespace Example.TripScheduler.WebApi.v1.Journeys.GetJourneys;
+﻿namespace Example.TripScheduler.Application.Journeys.Queries.GetJourneyById;
 
 public sealed record Car
 {

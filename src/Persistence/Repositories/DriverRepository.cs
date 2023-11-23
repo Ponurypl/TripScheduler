@@ -11,14 +11,21 @@ internal sealed class DriverRepository : IDriverRepository
         _drivers = context.Set<Driver>();
     }
 
-    public async Task<List<Driver>> GetAllAsync(CancellationToken ct = default)
+    public async Task<List<Driver>> GetAsync(CancellationToken ct = default)
     {
         return await _drivers.AsNoTracking().ToListAsync(ct);
     }
 
-    public async Task<List<Driver>> GetByNameAsync(string name, CancellationToken ct = default)
+    public async Task<List<Driver>> GetAsync(string? name, CancellationToken ct = default)
     {
-        return await _drivers.Where(d => d.FirstName == name || d.LastName == name).ToListAsync(ct);
+        var query = _drivers.AsNoTracking();
+        
+        if (name is not null)
+        {
+            query = query.Where(x => x.LastName == name || x.FirstName == name);
+        }
+
+        return await query.ToListAsync(ct);
     }
 
     public async Task<Driver?> GetByIdAsync(DriverId id, CancellationToken ct = default)

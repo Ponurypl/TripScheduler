@@ -40,6 +40,12 @@ internal sealed class ScheduledJourneySqliteConfiguration : IEntityTypeConfigura
                 .IsRequired()
                 .HasColumnName("departure_time");
 
+        builder.Property(x => x.PassengersSeats)
+                .IsRequired()
+                .HasPrecision(2,0)
+                .HasDefaultValueSql("0")
+                .HasColumnName("passengers_seats");
+
 
         builder.HasKey(x => x.Id);
         builder.HasOne<Driver>().WithMany().HasForeignKey(x => x.Driver);

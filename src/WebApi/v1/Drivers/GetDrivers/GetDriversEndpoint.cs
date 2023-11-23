@@ -1,5 +1,4 @@
 ﻿using Example.TripScheduler.Application.Drivers.Queries.GetDrivers;
-using Example.TripScheduler.Application.Drivers.Queries.GetDriversByName;
 using Example.TripScheduler.WebApi.Common.Logging;
 
 namespace Example.TripScheduler.WebApi.v1.Drivers.GetDrivers;
@@ -26,9 +25,7 @@ public sealed class GetDriversEndpoint : Endpoint<GetDriversRequest, GetDriversR
 
     public override async Task HandleAsync(GetDriversRequest request, CancellationToken ct)
     {
-        var result = request.Name is null
-                         ? await _sender.Send(new GetDriversQuery(), ct)
-                         : await _sender.Send(new GetDriversByNameQuery { Name = request.Name }, ct);
+        var result = await _sender.Send(new GetDriversQuery { Name = request.Name }, ct);
 
         if (result.IsError)
         {

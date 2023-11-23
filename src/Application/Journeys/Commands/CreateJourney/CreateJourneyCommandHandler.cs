@@ -43,7 +43,7 @@ internal sealed class CreateJourneyCommandHandler : ICommandHandler<CreateJourne
         }
 
         var journey = ScheduledJourney.Create(request.Origin, request.Destination, request.DepartureTime, driver.Id,
-                                              car.Id);
+                                              car.Id, car.PassengerSeats);
         if (journey.IsError)
         {
             return journey.Errors;

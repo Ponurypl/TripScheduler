@@ -4,7 +4,7 @@ internal sealed class Mapper : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {
-        config.NewConfig<Application.Drivers.Queries.Common.Driver, Driver>();
-        config.NewConfig<Application.Drivers.Queries.Common.Genders, Genders>();
+        config.NewConfig<Application.Drivers.Queries.GetDrivers.Driver, Driver>();
+        config.NewConfig<Application.Drivers.Queries.GetDrivers.Genders, Genders>();
     }
 }

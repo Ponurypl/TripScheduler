@@ -25,28 +25,32 @@ Accept: application/json
 
 ###
 
+GET {{WebApi_HostAddress}}/api/v1/journeys/1fa04c0e-32c5-4226-b444-32a3a0e54870
+Accept: application/json
+
+###
+
 POST {{WebApi_HostAddress}}/api/v1/journeys/
 Content-Type: application/json
 
 {
-  "Origin": "London",
-  "Destination": "Birmingham",
-  "DepartureTime": "2023-11-23T16:36:35.911Z",
-  "DriverId": 1,
-  "CarId": 2
+  "Origin": "Berlin",
+  "Destination": "Paris",
+  "DepartureTime": "2023-11-28T16:36:35.911Z",
+  "DriverId": 5,
+  "CarId": 4
 }
 
 ###
 
-@JourneyId = 1fa04c0e-32c5-4226-b444-32a3a0e54870
-POST {{WebApi_HostAddress}}/api/v1/journeys/{{JourneyId}}/participants
+POST {{WebApi_HostAddress}}/api/v1/journeys/1fa04c0e-32c5-4226-b444-32a3a0e54870/participants
 Content-Type: application/json
 
 {
-  "FirstName": "Jack",
-  "LastName": "Daniels",
-  "Email": "example@example.com"
+  "FirstName": "Johny",
+  "LastName": "Walker",
   
+  "Phone": "123456789"
 }
 
 ###

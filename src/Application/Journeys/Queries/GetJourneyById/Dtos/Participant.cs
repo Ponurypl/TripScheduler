@@ -1,4 +1,4 @@
-﻿namespace Example.TripScheduler.Application.Journeys.Queries.GetJourneys;
+﻿namespace Example.TripScheduler.Application.Journeys.Queries.GetJourneyById;
 
 public sealed record Participant
 {
