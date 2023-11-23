@@ -9,7 +9,7 @@ internal sealed class SqliteConnectionStringProvider : IConnectionStringProvider
 
     public SqliteConnectionStringProvider(IOptions<ConnectionStringDetails> options)
     {
-        _connectionString = $"{options.Value.ConnectionString.TrimEnd(';')};Version=3;";
+        _connectionString = $"Data Source={Path.Combine(Directory.GetCurrentDirectory(), options.Value.ConnectionString.TrimEnd(';'))};";
     }
 
     public string GetConnectionString() => _connectionString;

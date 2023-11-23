@@ -38,6 +38,6 @@ internal sealed class ParticipantSqliteConfiguration : IEntityTypeConfiguration<
                .HasConversion(id => id.Value, value => new ScheduledJourneyId(value));
 
         builder.HasKey(x => x.Id);
-        builder.HasOne<ScheduledJourney>().WithMany().HasForeignKey("journey_id");
+        builder.HasOne(x => x.ScheduledJourney).WithMany(x => x.Participants).HasForeignKey("journey_id");
     }
 }

@@ -23,4 +23,11 @@ public static class ConfigureServices
 
         return services;
     }
+
+    public static async Task InitializeDatabaseAsync(this IServiceProvider serviceProvider)
+    {
+        using var scope = serviceProvider.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        await dbContext.Database.MigrateAsync();
+    }
 }
