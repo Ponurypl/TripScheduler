@@ -51,7 +51,7 @@ public sealed class ScheduledJourney : AggregateRoot<ScheduledJourneyId>
 
     public ErrorOr<Participant> AddParticipant(string firstName, string lastName, string? email, string? phoneNumber)
     {
-        var participant = Participant.Create(firstName, lastName, email, phoneNumber);
+        var participant = Participant.Create(this, firstName, lastName, email, phoneNumber);
 
         if (participant.IsError)
         {

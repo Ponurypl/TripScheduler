@@ -49,7 +49,7 @@ internal sealed class CreateJourneyCommandHandler : ICommandHandler<CreateJourne
             return journey.Errors;
         }
 
-        _journeyRepository.Add(journey.Value);
+        await _journeyRepository.AddAsync(journey.Value, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return new JourneyCreated { Id = journey.Value.Id.Value };
