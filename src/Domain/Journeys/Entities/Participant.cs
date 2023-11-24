@@ -8,7 +8,7 @@ public sealed class Participant : Entity<ParticipantId>
     public ContactInformation ContactInformation { get; private set; } = null!;
 
 #pragma warning disable CS8618, IDE0051
-    public Participant(ParticipantId id) : base(id)
+    private Participant(ParticipantId id) : base(id)
     {
         //EF Core ctor
     }

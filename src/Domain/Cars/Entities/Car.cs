@@ -8,7 +8,7 @@ public sealed class Car : AggregateRoot<CarId>
     public int PassengerSeats { get; private set; }
 
 #pragma warning disable CS8618, IDE0051
-    public Car(CarId id) : base(id)
+    private Car(CarId id) : base(id)
     {
         //EF Core ctor
     }
