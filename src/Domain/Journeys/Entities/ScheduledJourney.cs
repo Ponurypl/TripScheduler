@@ -16,7 +16,7 @@ public sealed class ScheduledJourney : AggregateRoot<ScheduledJourneyId>
     public IReadOnlyList<Participant> Participants => _participants;
 
 #pragma warning disable CS8618, IDE0051
-    public ScheduledJourney(ScheduledJourneyId id) : base(id)
+    private ScheduledJourney(ScheduledJourneyId id) : base(id)
     {
         //EF Core ctor
     }
